@@ -35,7 +35,7 @@ db.once('open', () => {
 
 
 app.post("/signup", (req, res) => {
-   res.setHeader("Access-Control-Allow-Credentials,"true");
+   res.setHeader("Access-Control-Allow-Credentials","true");
 bcrypt.hash(req.body.password,10)
 .then((hashedPassword)=>{
 UserModel.create({
@@ -54,7 +54,7 @@ message:" error in hashing password",err}))
 
 
 app.post("/login",(req,res)=>{
-   res.setHeader("Access-Control-Allow-Credentials,"true");
+   res.setHeader("Access-Control-Allow-Credentials","true");
 UserModel.findOne({username:req.body.username})
 // if username is found
 .then(User =>{
@@ -79,7 +79,7 @@ message:" error in finding username"})
 });
 
 app.post("/reviews",(req,res) =>{
-   res.setHeader("Access-Control-Allow-Credentials,"true");
+   res.setHeader("Access-Control-Allow-Credentials","true");
 ReviewModel.create(req.body)
 .then(Review =>(res.json(Review)))
 .catch(err => res.json(err))
@@ -87,7 +87,7 @@ ReviewModel.create(req.body)
 })
 
 app.get("/",function(req,res){
-  res.setHeader("Access-Control-Allow-Credentials,"true");
+  res.setHeader("Access-Control-Allow-Credentials","true");
   res.send("hello world this is freaking!")
   
 });
