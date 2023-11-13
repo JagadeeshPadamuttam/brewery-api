@@ -35,6 +35,7 @@ db.once('open', () => {
 
 
 app.post("/signup", (req, res) => {
+   res.setHeader("Access-Control-Allow-Credentials,"true");
 bcrypt.hash(req.body.password,10)
 .then((hashedPassword)=>{
 UserModel.create({
@@ -51,25 +52,9 @@ message:" error in hashing password",err}))
 });
 
 
-// Login route
-// app.post('/login', async (req, res) => {
-//   try {
-//     const { username, password } = req.body;
 
-//     // Find the user in the database
-//     const user = await User.findOne({ username });
-
-//     if (!user || user.password !== password) {
-//       return res.status(401).json({ message: 'Invalid credentials' });
-//     }
-
-//     res.status(200).json({ message: 'Login successful' });
-//   } catch (error) {
-//     console.error('Login error:', error);
-//     res.status(500).json({ message: 'Internal Server Error' });
-//   }
-// });
 app.post("/login",(req,res)=>{
+   res.setHeader("Access-Control-Allow-Credentials,"true");
 UserModel.findOne({username:req.body.username})
 // if username is found
 .then(User =>{
@@ -94,6 +79,7 @@ message:" error in finding username"})
 });
 
 app.post("/reviews",(req,res) =>{
+   res.setHeader("Access-Control-Allow-Credentials,"true");
 ReviewModel.create(req.body)
 .then(Review =>(res.json(Review)))
 .catch(err => res.json(err))
