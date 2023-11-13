@@ -34,7 +34,7 @@ db.once('open', () => {
 // const Review = mongoose.model('Review', reviewSchema);
 
 
-app.post("/signup", (req, res) => {
+app.post("https://brewery-uw7j.onrender.com/signup", (req, res) => {
    res.setHeader("Access-Control-Allow-Credentials","true");
 bcrypt.hash(req.body.password,10)
 .then((hashedPassword)=>{
@@ -53,7 +53,7 @@ message:" error in hashing password",err}))
 
 
 
-app.post("/login",(req,res)=>{
+app.post("https://brewery-uw7j.onrender.com/login",(req,res)=>{
    res.setHeader("Access-Control-Allow-Credentials","true");
 UserModel.findOne({username:req.body.username})
 // if username is found
@@ -78,7 +78,7 @@ message:" error in finding username"})
 
 });
 
-app.post("/reviews",(req,res) =>{
+app.post("https://brewery-uw7j.onrender.com/reviews",(req,res) =>{
    res.setHeader("Access-Control-Allow-Credentials","true");
 ReviewModel.create(req.body)
 .then(Review =>(res.json(Review)))
