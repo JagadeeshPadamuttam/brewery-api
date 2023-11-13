@@ -101,7 +101,9 @@ ReviewModel.create(req.body)
 })
 
 app.get("/",function(req,res){
+  res.setHeader("Access-Control-Allow-Credentials,"true");
   res.send("hello world this is freaking!")
+  
 });
 
 app.listen(port, () => {
