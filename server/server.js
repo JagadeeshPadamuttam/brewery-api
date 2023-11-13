@@ -21,7 +21,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/brewery_reviews");
+mongoose.connect("mongodb+srv://jagadeeshpadamuttam807:Jagadeesh%4027@cluster0.hgigbwd.mongodb.net/brewery");
 
 const db = mongoose.connection;
 
